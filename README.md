@@ -1,5 +1,5 @@
 # Sourcemod_remover
-This is a spetial program that i wrote for "a joke" with my friend that can find/delete `sourcemod` folder in _almost_ any disk in about a seconds.
+This is a spetial program that i wrote for "a joke" with my friend that can find/delete `sourcemod` folder in _almost_ any disk in about a seconds. Its can be ANY sourcemod folder. Is it a source engine modification folder? Maybe some programming folder? HE DONT CARE!
 
 
 
