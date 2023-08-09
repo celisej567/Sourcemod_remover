@@ -1,0 +1,14 @@
+
+*.tlog
+*.iobj
+*.pdb
+*.ipdb
+*.log
+*.obj
+*.res
+*.recipe
+*.db
+*.db-shm
+*.db-wal
+*.opendb
+*.ipch
