@@ -119,5 +119,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_ int       nCmdShow)
 {
     FindSourcemodsPath();
+    cin;
     return 0;
 }

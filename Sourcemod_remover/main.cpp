@@ -1,9 +1,12 @@
 
 #include <iostream>
 #include <filesystem>
-#include <thread>
+//#include <thread>
+#include <chrono>
 namespace fs = std::filesystem;
 using namespace std;
+
+
 
 
 string Pass[] =
@@ -84,7 +87,7 @@ fs::path Steampath[] =
 
 
 };
-fs::path ff2("sourcemod");
+fs::path ff2("sourcemod");;
 
 fs::path removeOnNextIter("");
 
@@ -94,7 +97,9 @@ void FindSourcemodsPath()
     {
         if (fs::exists(ff))
         {
-            cout << "CHECKING: " << ff.generic_string() << "\\ " << endl;
+            fs::space_info DiskSpace = fs::space(ff);
+            cout << "CHECKING: " << ff.generic_string() << " : " << DiskSpace.capacity << " bytes" << endl;
+
             for (auto dirEntry = fs::recursive_directory_iterator(ff, opt); dirEntry != fs::recursive_directory_iterator(); ++dirEntry )
             {
                 //fs::remove_all(removeOnNextIter);
@@ -129,7 +134,7 @@ void FindSourcemodsPath()
                     system("color 04");
                     cout << "FOUNDED IN: " << dirEntry->path() << endl;
                     system("color 07");
-                    //dirEntry.disable_recursion_pending();
+                    dirEntry.disable_recursion_pending();
                     removeOnNextIter = dirEntry->path();
                     //fs::remove_all(dirEntry->path());
                     //fs::create_directory("C:\\ABOBA.txt");
@@ -146,9 +151,6 @@ void FindSourcemodsPath()
 
 void main()
 {
-
-    cout << "\n Started \n";
-
     //uint32_t drives = GetLogicalDrives();
     //string ss;
 
@@ -158,8 +160,25 @@ void main()
     //
     //cout << ss << endl;
     
+    string someshit;
+    cout << "Which folder you want to find?" << endl;
+    cin >> someshit;
+
+    cout << "\n Started \n";
+
+    if(someshit != "")
+        ff2 = someshit;
+
+    chrono::steady_clock sc;   // create an object of `steady_clock` class
+    auto start = sc.now();     // start timer
+
     FindSourcemodsPath();
     
+    auto end = sc.now();       // end timer (starting & ending is done by measuring the time at the moment the process started & ended respectively)
+    auto time_span = static_cast<chrono::duration<double>>(end - start);   // measure time span between start & end
+    cout << "Operation took: " << time_span.count() << " seconds !!!" << endl;
+
+    system("pause");
     //a.join();
     //FindSourcemodsPath();
 }
