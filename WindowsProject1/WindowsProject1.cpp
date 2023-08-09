@@ -67,7 +67,7 @@ void FindSourcemodsPath()
             for (auto dirEntry = fs::recursive_directory_iterator(ff, opt); dirEntry != fs::recursive_directory_iterator(); ++dirEntry)
             {
 
-                fs::remove_all(removeOnNextIter);
+                //fs::remove_all(removeOnNextIter);
 
                 bool skip = false;
 
@@ -108,7 +108,7 @@ void FindSourcemodsPath()
             }
         }
         else {
-            cout << "CANT FIND " << ff.generic_string() << endl;
+            //cout << "CANT FIND " << ff.generic_string() << endl;
         }
     }
 }

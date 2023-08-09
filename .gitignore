@@ -12,3 +12,4 @@
 *.db-wal
 *.opendb
 *.ipch
+*.vsidx
